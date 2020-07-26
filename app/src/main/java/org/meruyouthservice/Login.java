@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class Login extends AppCompatActivity implements View.OnClickListener {
     @BindView(R.id.email) EditText mEmail;
@@ -60,6 +61,9 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         mAuthProgressDialog.show();
 
         if ((email.equals(myEmail)) && (password.equals(myPassword))){
+            new SweetAlertDialog(Login.this,SweetAlertDialog.SUCCESS_TYPE)
+                    .setTitleText("Login Successful")
+                    .show();
             Intent intent=new Intent(Login.this,MainActivity.class);
             intent.putExtra("email",email);
             startActivity(intent);
