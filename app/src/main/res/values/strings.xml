@@ -1,8 +1,77 @@
 <resources>
     <string name="app_name">Meru Youth Service</string>
-    <string name="prompt_email">Email</string>
+    <string name="prompt_Email">Email</string>
     <string name="prompt_password">Password</string>
     <string name="action_sign_in">Sign in</string>
     <string name="logout">logging_out</string>
     <string name="cancel">cancel</string>
+
+    <string-array name="zone">
+        <item>--Select Zone--</item>
+        <item>Imenti</item>
+        <item>Tigania</item>
+        <item>Igembe</item>
+    </string-array>
+
+    <string-array name="subCounty">
+        <item>--Select Sub_County--</item>
+        <item>South Imenti</item>
+        <item>Central Imenti</item>
+        <item>North Imenti</item>
+        <item>Buuri</item>
+        <item>Tigania East</item>
+        <item>Tigania West</item>
+        <item>Igembe South</item>
+        <item>Igembe Central</item>
+        <item>Igembe North</item>
+    </string-array>
+
+    <string-array name="structure">
+        <item>--Choose Structure Condition--</item>
+        <item>Good</item>
+        <item>Average</item>
+        <item>Bad</item>
+    </string-array>
+
+    <string-array name="property">
+        <item>--Select Property--</item>
+        <item>Motor Vehicle</item>
+        <item>Motor Bike</item>
+    </string-array>
+
+    <string-array name="technology">
+        <item>--Select Technology Access--</item>
+        <item>Mpesa</item>
+        <item>E-banking</item>
+        <item>E-marketing</item>
+        <item>E-learning(farming)</item>
+    </string-array>
+
+    <string-array name="incomeSources">
+        <item>--Select Income Source--</item>
+        <item>Salary</item>
+        <item>Farming</item>
+        <item>SME’s</item>
+    </string-array>
+
+    <string-array name="incomeRage">
+        <item>--Select Income Rage--</item>
+        <item>Ksh.10,000 - Ksh.20,000</item>
+        <item>Ksh.21,000 - Ksh.40,000</item>
+        <item>Ksh.41,000 - Ksh.60,000</item>
+        <item>Above Ksh.60,000</item>
+    </string-array>
+
+    <string-array name="farming">
+        <item>--Select Farming Type--</item>
+        <item>Livestocks</item>
+        <item>Crops</item>
+    </string-array>
+
+    <string-array name="sme">
+        <item>--Select SME--</item>
+        <item>Turn over per year</item>
+        <item>No. of employees</item>
+    </string-array>
+
 </resources>

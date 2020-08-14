@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorYellow"
-    tools:context=".Login">
+    tools:context=".ui.Login">
 
     <EditText
         android:id="@+id/email"
@@ -22,7 +22,7 @@
         android:paddingRight="10dp"
         android:background="@drawable/input"
         android:drawableEnd="@drawable/ic_baseline_email_24"
-        android:hint="@string/prompt_email"
+        android:hint="@string/prompt_Email"
         android:inputType="textEmailAddress"
         android:selectAllOnFocus="true"
         app:layout_constraintBottom_toTopOf="@+id/password"
