@@ -1,41 +1,25 @@
 package org.meruyouthservice.models;
 
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
-
 public class Users {
-
-    @SerializedName("username")
-    @Expose
-    private String username;
-    @SerializedName("password")
-    @Expose
+    private String email;
     private String password;
+    private String userName;
 
-    /**
-     * No args constructor for use in serialization
-     *
-     */
-//    public Users() {
-//    }
+    public Users() {
+    }
 
-    /**
-     *
-     * @param password
-     * @param username
-     */
-    public Users(String username, String password) {
-        super();
-        this.username = username;
+    public Users( String email, String password, String userName) {
+        this.email = email;
         this.password = password;
+        this.userName = userName;
     }
 
-    public String getUsername() {
-        return username;
+    public String getEmail() {
+        return email;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {
@@ -46,4 +30,11 @@ public class Users {
         this.password = password;
     }
 
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
 }

@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
 
 import org.meruyouthservice.CustomOnItemSelectedListener;
 import org.meruyouthservice.R;
@@ -35,37 +36,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @BindView(R.id.btnSubmit)Button mSubmit;
 
-//    private String userName;
+    private String userName;
     private String name1;
     private String age1;
     private String location1;
     private String ward1;
     private String County1;
     private ProgressDialog mAuthProgressDialog;
-    private FirebaseAuth mAuth;
-    private FirebaseAuth.AuthStateListener mAuthListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//
-//        Intent intent=getIntent();
-//        userName=intent.getStringExtra("userNames");
-//        getSupportActionBar().setTitle("Welcome "+userName);
 
-        mAuth = FirebaseAuth.getInstance();
-        mAuthListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                if (user != null) {
-                    getSupportActionBar().setTitle(user.getEmail());
-                } else {
-
-                }
-            }
-        };
+        Intent intent=getIntent();
+        userName=intent.getStringExtra("userNames");
+        getSupportActionBar().setTitle("Welcome "+userName);
 
         createAuthProgressDialog();
 
@@ -102,7 +88,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         positiveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseAuth.getInstance().signOut();
                 Intent intent = new Intent(MainActivity.this, Login.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
@@ -147,13 +132,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 .show();
 
         Intent intent=new Intent(MainActivity.this, MainActivity2.class);
-//        intent.putExtra("UserName",userName);
+        intent.putExtra("UserName",userName);
         intent.putExtra("name",name1);
         intent.putExtra("age",age1);
         intent.putExtra("location",location1);
         intent.putExtra("ward",ward1);
         intent.putExtra("County",County1);
         startActivity(intent);
+        finish();
     }
 
     private boolean isNameNull(String names) {
@@ -199,19 +185,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return false;
         }
         return true;
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        mAuth.addAuthStateListener(mAuthListener);
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        if (mAuthListener != null) {
-            mAuth.removeAuthStateListener(mAuthListener);
-        }
     }
 }

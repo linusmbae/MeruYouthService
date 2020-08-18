@@ -36,7 +36,7 @@ public class MainActivity3 extends AppCompatActivity implements View.OnClickList
     @BindView(R.id.family_size) EditText family_size;
     @BindView(R.id.physically_challenged) EditText physically_challenged;
 
-//    private String userName;
+    private String userName;
     private String name1;
     private String age1;
     private String location1;
@@ -64,7 +64,7 @@ public class MainActivity3 extends AppCompatActivity implements View.OnClickList
 
 
         Intent intent=getIntent();
-//        userName=intent.getStringExtra("UserName");
+        userName=intent.getStringExtra("UserName");
         name1=intent.getStringExtra("name");
         age1=intent.getStringExtra("age");
         location1=intent.getStringExtra("location");
@@ -76,6 +76,7 @@ public class MainActivity3 extends AppCompatActivity implements View.OnClickList
         Zone=intent.getStringExtra("Zone");
         Education=intent.getStringExtra("Education");
         ProffSkills=intent.getStringExtra("ProffSkills");
+        getSupportActionBar().setTitle("Welcome "+userName);
 
         createAuthProgressDialog();
         ButterKnife.bind(this);
@@ -127,8 +128,9 @@ public class MainActivity3 extends AppCompatActivity implements View.OnClickList
         boolean nullOpportunity = isOpportunityNull(SubCounty);
         boolean nullFamSize = isFamilySizeNull(Zone);
         boolean nullChallenged = isChallengedNull(Education);
+        boolean nullType = isPropertyTypeNull(typ);
 
-        if (!nullOpportunity || !nullFamSize || !nullChallenged)return;
+        if (!nullOpportunity || !nullFamSize || !nullChallenged|| !nullType)return;
 
         mAuthProgressDialog.show();
 
@@ -145,7 +147,7 @@ public class MainActivity3 extends AppCompatActivity implements View.OnClickList
                 .show();
 
         Intent intent=new Intent(MainActivity3.this, MainActivity4.class);
-//        intent.putExtra("UserName",userName);
+        intent.putExtra("UserName",userName);
         intent.putExtra("name",name1);
         intent.putExtra("age",age1);
         intent.putExtra("location",location1);
@@ -164,6 +166,7 @@ public class MainActivity3 extends AppCompatActivity implements View.OnClickList
         intent.putExtra("FamSize",FamSize);
         intent.putExtra("Challenge",Challenge);
         startActivity(intent);
+            finish();
         }
     }
 
@@ -194,4 +197,14 @@ public class MainActivity3 extends AppCompatActivity implements View.OnClickList
         }
         return true;
     }
+
+    private boolean isPropertyTypeNull(String propertyType) {
+        if (propertyType.equals("")) {
+            mAuthProgressDialog.dismiss();
+            type.setError("Please fill this field");
+            return false;
+        }
+        return true;
+    }
+
 }

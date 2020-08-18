@@ -28,7 +28,7 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
     @BindView(R.id.professional_skills) EditText professional_skills;
     private ProgressDialog mAuthProgressDialog;
 
-//    private String userName;
+    private String userName;
     private String name1;
     private String age1;
     private String location1;
@@ -49,12 +49,13 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
         ButterKnife.bind(this);
 
         Intent intent=getIntent();
-//        userName=intent.getStringExtra("UserName");
+        userName=intent.getStringExtra("UserName");
         name1=intent.getStringExtra("name");
         age1=intent.getStringExtra("age");
         location1=intent.getStringExtra("location");
         ward1=intent.getStringExtra("ward");
         County1=intent.getStringExtra("County");
+        getSupportActionBar().setTitle("Welcome "+userName);
 
         createAuthProgressDialog();
         mSubmit1.setOnClickListener(this);
@@ -100,7 +101,7 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
                     .show();
 
             Intent intent = new Intent(MainActivity2.this, MainActivity3.class);
-//        intent.putExtra("UserName",userName);
+            intent.putExtra("UserName",userName);
             intent.putExtra("name", name1);
             intent.putExtra("age", age1);
             intent.putExtra("location", location1);
@@ -113,6 +114,7 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
             intent.putExtra("Education", Education);
             intent.putExtra("ProffSkills", ProffSkills);
             startActivity(intent);
+            finish();
         }
     }
 

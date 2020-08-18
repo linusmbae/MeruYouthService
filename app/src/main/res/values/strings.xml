@@ -51,7 +51,6 @@
         <item>--Select Income Source--</item>
         <item>Salary</item>
         <item>Farming</item>
-        <item>SME’s</item>
     </string-array>
 
     <string-array name="incomeRage">
@@ -66,6 +65,12 @@
         <item>--Select Farming Type--</item>
         <item>Livestocks</item>
         <item>Crops</item>
+    </string-array>
+
+    <string-array name="cropType">
+        <item>--Select Crop Type--</item>
+        <item>Cash Crops</item>
+        <item>Food Crops</item>
     </string-array>
 
     <string-array name="sme">
